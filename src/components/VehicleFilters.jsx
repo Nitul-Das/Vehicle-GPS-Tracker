@@ -32,24 +32,25 @@ const VehicleFilters = ({ vehicles, filters, onFiltersChange }) => {
       </h3>
 
       <div className="space-y-4">
-        {/* Vehicle ID Filter */}
-        <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
-            <Search className="w-4 h-4 inline mr-1" />
-            Vehicle ID
-          </label>
-          <select
-            value={filters.vehicleId}
-            onChange={handleVehicleIdChange}
-            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {vehicleIds.map(id => (
-              <option key={id} value={id}>
-                {id === 'all' ? 'All Vehicles' : id}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Vehicle ID and Name Filter */}
+       <div>
+  <label className="block text-sm font-medium text-gray-300 mb-2">
+    <Search className="w-4 h-4 inline mr-1" />
+    Vehicles
+  </label>
+  <select
+    value={filters.vehicleId}
+    onChange={handleVehicleIdChange}
+    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+  >
+    <option value="all">All Vehicles</option>
+    {vehicles.map(vehicle => (
+      <option key={vehicle.id} value={vehicle.id}>
+        {vehicle.id} - {vehicle.name}
+      </option>
+    ))}
+  </select>
+</div>
 
         {/* Status Filter */}
         <div>

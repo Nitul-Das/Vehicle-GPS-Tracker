@@ -30,8 +30,8 @@ const Header = ({ vehicleCount, totalVehicles, countdown, onToggleSidebar, sideb
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse" />
             </div>
             <div>
-              <h1 className="text-white text-lg lg:text-xl font-bold tracking-tight">
-                VehicleTracker
+              <h1 className="text-white text-sm sm:text-base lg:text-xl font-bold tracking-tight">
+                Vehicle Tracker GPS
               </h1>
               <p className="text-slate-400 text-xs lg:text-sm leading-none">
                 Real-time Monitoring
@@ -43,7 +43,7 @@ const Header = ({ vehicleCount, totalVehicles, countdown, onToggleSidebar, sideb
         {/* Right Section - Stats and Controls */}
         <div className="flex items-center gap-2 lg:gap-4">
           {/* Vehicle Count - Always visible */}
-          <div className="flex items-center gap-1 bg-slate-700/50 rounded-lg px-3 py-2">
+          <div className="flex items-center gap-1 bg-slate-700/50 rounded-lg px-2 py-1 sm:px-3 sm:py-2 text-xs sm:text-sm">
             <Users className="w-4 h-4 text-blue-400" />
             <div className="text-white">
               <span className="font-bold text-sm lg:text-base">{vehicleCount}</span>
@@ -62,7 +62,7 @@ const Header = ({ vehicleCount, totalVehicles, countdown, onToggleSidebar, sideb
           </div>
 
           {/* Countdown Timer */}
-          <div className="flex items-center gap-1 bg-yellow-500/20 rounded-lg px-3 py-2">
+          <div className="flex items-center gap-1 bg-yellow-500/20 rounded-lg px-2 py-1 sm:px-3 sm:py-2 text-xs sm:text-sm">
             <Clock className="w-4 h-4 text-yellow-400" />
             <div className="text-yellow-300">
               <span className="text-yellow-200 text-xs lg:text-sm hidden sm:inline ml-1">

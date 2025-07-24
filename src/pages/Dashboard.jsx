@@ -39,20 +39,18 @@ const handleSidebarToggle = () => setSidebarOpen(prev => !prev);
 
   //  fetch vehicles, then repeat fetch every 10s and update countdown every 1s
   useEffect(() => {
+
     loadVehicles();
-    const fetchInterval = setInterval(() => {
+
+    setInterval(() => {
       loadVehicles();
       setCountdown(10);
     }, 10000);
 
-    const countdownInterval = setInterval(() => {
+    setInterval(() => {
       setCountdown(prev => (prev > 0 ? prev - 1 : 10));
     }, 1000);
 
-    return () => {
-      clearInterval(fetchInterval);
-      clearInterval(countdownInterval);
-    };
   }, []);
   
 
@@ -61,9 +59,8 @@ useEffect(() => {
   applyFilters();
 }, [vehicles, filters]);
 
-// Function to apply all filter conditions
 const applyFilters = () => {
-  // Start with all vehicles
+  
   let filtered = vehicles;
 
   // Filter by specific vehicle ID (if not 'all')
@@ -92,7 +89,6 @@ const applyFilters = () => {
 
 // Function to update the filters state when a user applies or changes any filter
 const updateFilters = newFilters => {
-  // Merge the new filters with the previous ones
   setFilters(prev => ({ ...prev, ...newFilters }));
 };
 
@@ -111,8 +107,7 @@ if (loading) return <LoadingOverlay />;
       />
 
       <div className="flex-1 overflow-hidden flex flex-col md:flex-row">
-       <div className="bg-gray-800 border-b md:border-b-0 md:border-r border-gray-700 w-full md:w-[26rem] h-1/2 md:h-auto overflow-y-auto">
-
+       <div className="bg-gray-800 border-b md:border-b-0 md:border-r border-gray-700 w-full md:w-[26rem] h-[35vh] md:h-auto overflow-y-auto">
 
           <div className="p-4 border-b border-gray-700">
             <h2 className="text-lg font-semibold text-white">Fleet Control</h2>
