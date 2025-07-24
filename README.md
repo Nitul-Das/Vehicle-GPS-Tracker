@@ -1,8 +1,8 @@
-# 🚗 Vehicle GPS Tracking UI with Live Map Display
+# Vehicle GPS Tracking UI with Live Map Display
 
 A responsive React.js application to display real-time vehicle positions on a map using Leaflet.js. It fetches vehicle data from a mock API, updates every 10 seconds, and includes filtering, statistics, and a visually clean UI.
 
-## 🚀 Live Demo
+## Live Demo
 
 **[View Live Application](https://vehicle-gps-tracker.vercel.app/)**
 
