@@ -125,6 +125,4 @@ Example: https://loom.com/share/demo-link
 
 ## Author
 
-**Project by [Your Name]**
-
-GitHub: https://github.com/yourusername
+**Project by [Nitul Das]**
