@@ -102,7 +102,7 @@ function Dashboard() {
       {/* Main Content */}
       <div className="flex flex-col md:flex-row flex-1">
         {/* Sidebar */}
-        <div className="bg-gray-800 border-b md:border-b-0 md:border-r border-gray-700 w-full md:w-[26rem] overflow-auto">
+        <div className="bg-gray-800 border-b md:border-b-0 md:border-r border-gray-700 w-full md:w-[36rem] overflow-auto">
           <div className="p-4 border-b border-gray-700">
             <h2 className="text-lg font-semibold text-white">Fleet Control</h2>
           </div>
