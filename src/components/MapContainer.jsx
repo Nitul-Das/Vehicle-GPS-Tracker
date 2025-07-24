@@ -1,7 +1,7 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import VehicleMarker from "../components/VehicleMaker";
+import VehicleMarker from "./VehicleMarker";
 
 const VehicleMap = ({ vehicles }) => {
   return (
