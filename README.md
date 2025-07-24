@@ -2,6 +2,10 @@
 
 A responsive React.js application to display real-time vehicle positions on a map using Leaflet.js. It fetches vehicle data from a mock API, updates every 10 seconds, and includes filtering, statistics, and a visually clean UI.
 
+## 🚀 Live Demo
+
+**[View Live Application](https://vehicle-gps-tracker.vercel.app/)**
+
 ## Table of Contents
 
 - [Features](#features)
@@ -15,13 +19,16 @@ A responsive React.js application to display real-time vehicle positions on a ma
 - [API and Data Flow](#api-and-data-flow)
 - [UI Flow](#ui-flow)
 - [Demo](#demo)
+- [Live Demo](#live-demo)
 - [Author](#author)
 
 ## Features
 
 - Live map display using Leaflet.js and OpenStreetMap
+- Uses OpenStreetMap tiles for map rendering
 - Periodic vehicle data fetching every 10 seconds
 - Interactive markers with custom icons and popups
+- Click markers to view vehicle details (ID, last update time, speed)
 - Sidebar with filters (by vehicle ID, speed, and status)
 - Vehicle statistics: moving, parked, offline, average speed
 - Countdown timer for next update
@@ -98,6 +105,7 @@ src/
 - Each vehicle object contains: `id`, `name`, `type`, `position` (lat, lng), `speed`, `status`, `driver`, `fuel`, `lastUpdate`
 - Data updates every 10 seconds using `setInterval`
 - Filtering is applied based on selected ID, speed range, and status
+- Clicking any vehicle marker displays: Vehicle ID, last update time, and current speed
 
 ## UI Flow
 
