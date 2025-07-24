@@ -17,12 +17,11 @@ function Dashboard() {
     maxSpeed: 100,
     status: 'all',
   });
-const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-const handleSidebarToggle = () => setSidebarOpen(prev => !prev);
+  const handleSidebarToggle = () => setSidebarOpen(prev => !prev);
 
-
-  // Fetch latest vehicle data and update state only if it has changed
+  // Fetch vehicle data
   const loadVehicles = async () => {
     try {
       const data = await fetchVehicles();
@@ -37,67 +36,61 @@ const handleSidebarToggle = () => setSidebarOpen(prev => !prev);
     }
   };
 
-  //  fetch vehicles, then repeat fetch every 10s and update countdown every 1s
+  // Auto-fetch every 10s and update countdown every 1s
   useEffect(() => {
-
     loadVehicles();
 
-    setInterval(() => {
+    const fetchInterval = setInterval(() => {
       loadVehicles();
       setCountdown(10);
     }, 10000);
 
-    setInterval(() => {
+    const countdownInterval = setInterval(() => {
       setCountdown(prev => (prev > 0 ? prev - 1 : 10));
     }, 1000);
 
+    return () => {
+      clearInterval(fetchInterval);
+      clearInterval(countdownInterval);
+    };
   }, []);
-  
 
-// Apply filters every time the vehicles data or filters change
-useEffect(() => {
-  applyFilters();
-}, [vehicles, filters]);
+  // Apply filters
+  useEffect(() => {
+    applyFilters();
+  }, [vehicles, filters]);
 
-const applyFilters = () => {
-  
-  let filtered = vehicles;
+  const applyFilters = () => {
+    let filtered = vehicles;
 
-  // Filter by specific vehicle ID (if not 'all')
-  if (filters.vehicleId !== 'all') {
-    filtered = filtered.filter(vehicle => vehicle.id === filters.vehicleId);
-  }
+    if (filters.vehicleId !== 'all') {
+      filtered = filtered.filter(vehicle => vehicle.id === filters.vehicleId);
+    }
 
-  // Filter vehicles within the selected speed range
-  filtered = filtered.filter(
-    vehicle =>
-      vehicle.speed >= filters.minSpeed &&
-      vehicle.speed <= filters.maxSpeed
-  );
-
-  // Filter by status (moving, parked, offline, etc.) if not 'all'
-  if (filters.status !== 'all') {
     filtered = filtered.filter(
       vehicle =>
-        vehicle.status.toLowerCase() === filters.status.toLowerCase()
+        vehicle.speed >= filters.minSpeed &&
+        vehicle.speed <= filters.maxSpeed
     );
-  }
 
-  // Update the filteredVehicles state with the final list
-  setFilteredVehicles(filtered);
-};
+    if (filters.status !== 'all') {
+      filtered = filtered.filter(
+        vehicle =>
+          vehicle.status.toLowerCase() === filters.status.toLowerCase()
+      );
+    }
 
-// Function to update the filters state when a user applies or changes any filter
-const updateFilters = newFilters => {
-  setFilters(prev => ({ ...prev, ...newFilters }));
-};
+    setFilteredVehicles(filtered);
+  };
 
-// Show loading screen while data is still loading
-if (loading) return <LoadingOverlay />;
+  const updateFilters = newFilters => {
+    setFilters(prev => ({ ...prev, ...newFilters }));
+  };
 
+  if (loading) return <LoadingOverlay />;
 
   return (
-    <div className="flex flex-col h-screen bg-gray-900 overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-gray-900 overflow-auto">
       <Header
         vehicleCount={filteredVehicles.length}
         totalVehicles={vehicles.length}
@@ -106,9 +99,10 @@ if (loading) return <LoadingOverlay />;
         sidebarOpen={sidebarOpen}
       />
 
-      <div className="flex-1 overflow-hidden flex flex-col md:flex-row">
-       <div className="bg-gray-800 border-b md:border-b-0 md:border-r border-gray-700 w-full md:w-[26rem] h-[35vh] md:h-auto overflow-y-auto">
-
+      {/* Main Content */}
+      <div className="flex flex-col md:flex-row flex-1">
+        {/* Sidebar */}
+        <div className="bg-gray-800 border-b md:border-b-0 md:border-r border-gray-700 w-full md:w-[26rem] overflow-auto">
           <div className="p-4 border-b border-gray-700">
             <h2 className="text-lg font-semibold text-white">Fleet Control</h2>
           </div>
@@ -119,11 +113,14 @@ if (loading) return <LoadingOverlay />;
             onFiltersChange={updateFilters}
           />
         </div>
-        <div className="flex-1 overflow-auto">
+
+        {/* Map */}
+        <div className="w-full h-[50vh] md:h-auto overflow-auto">
           <MapContainer vehicles={filteredVehicles} />
         </div>
       </div>
 
+      {/* Error Message */}
       {error && (
         <div className="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg">
           {error}

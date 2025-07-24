@@ -5,7 +5,7 @@ import VehicleMarker from "./VehicleMarker";
 
 const VehicleMap = ({ vehicles }) => {
   return (
-    <MapContainer center={[26.1445, 91.7362]} zoom={13} style={{ height: "100%", width: "100%" }}>
+    <MapContainer center={[26.1445, 91.7362]} zoom={13}  style={{ height: '100%', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"
