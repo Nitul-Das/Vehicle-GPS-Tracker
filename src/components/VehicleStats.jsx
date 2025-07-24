@@ -50,7 +50,7 @@ const VehicleStats = ({ vehicles, filteredVehicles }) => {
   return (
     <div>
       <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">
-        Fleet Statistics
+        Vehicle Statistics
       </h3>
 
       <div className="grid grid-cols-2 gap-3 mb-4">

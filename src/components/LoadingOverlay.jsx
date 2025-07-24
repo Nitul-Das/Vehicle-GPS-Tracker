@@ -16,7 +16,7 @@ const LoadingOverlay = () => {
         {/* Loading Spinner */}
         <div className="flex items-center justify-center space-x-3 mb-4">
           <Loader className="w-6 h-6 text-blue-400 animate-spin" />
-          <span className="text-gray-300 text-lg">Initializing Fleet Dashboard...</span>
+          <span className="text-gray-300 text-lg">Initializing Vehicle Dashboard...</span>
         </div>
 
         {/* Loading Bar */}

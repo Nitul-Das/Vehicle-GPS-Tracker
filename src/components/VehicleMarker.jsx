@@ -12,17 +12,55 @@ const VehicleMarker = ({ vehicle }) => {
 
   return (
     <Marker position={[lat, lng]} icon={icon}>
-      <Popup>
-        <div style={{ fontFamily: "sans-serif", fontSize: "12px" }}>
-          <strong>{emoji} {vehicle.name}</strong><br />
-          ID: {vehicle.id}<br />
-          Driver: {vehicle.driver}<br />
-          Type: {vehicle.type}<br />
-          Status: {vehicle.status}<br />
-          Speed: {vehicle.speed} km/h<br />
-          Fuel: {vehicle.fuel}%<br />
-          Location: {lat.toFixed(4)}, {lng.toFixed(4)}<br />
-          Last Update: {new Date(vehicle.lastUpdate).toLocaleTimeString()}
+     <Popup>
+        <div className="p-3 min-w-[200px]">
+          <h3 className="font-bold text-lg mb-3 text-gray-800">
+            {emoji} {vehicle.name}
+          </h3>
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between">
+              <span className="font-medium">ID:</span>
+              <span>{vehicle.id}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium">Driver:</span>
+              <span>{vehicle.driver}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium">Type:</span>
+              <span>{vehicle.type}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium">Speed:</span>
+              <span className="font-bold text-blue-600">{vehicle.speed} km/h</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium">Fuel:</span>
+              <span>{vehicle.fuel}%</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium">Status:</span>
+              <span className={`capitalize px-2 py-1 rounded text-xs font-medium ${
+                vehicle.status.toLowerCase() === 'active' ? 'bg-green-100 text-green-800' :
+                vehicle.status.toLowerCase() === 'idle' ? 'bg-yellow-100 text-yellow-800' :
+                vehicle.status.toLowerCase() === 'maintenance' ? 'bg-red-100 text-red-800' :
+                'bg-gray-100 text-gray-800'
+              }`}>
+                {vehicle.status}
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-medium">Coordinates:</span>
+              <span className="text-xs">{lat.toFixed(4)}, {lng.toFixed(4)}</span>
+            </div>
+            {vehicle.lastUpdate && (
+              <div className="pt-2 border-t border-gray-200">
+                <span className="text-xs text-gray-500">
+                  Last Update: {new Date(vehicle.lastUpdate).toLocaleTimeString()}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </Popup>
     </Marker>

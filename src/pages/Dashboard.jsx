@@ -104,7 +104,7 @@ function Dashboard() {
         {/* Sidebar */}
         <div className="bg-gray-800 border-b md:border-b-0 md:border-r border-gray-700 w-full md:w-[36rem] overflow-auto">
           <div className="p-4 border-b border-gray-700">
-            <h2 className="text-lg font-semibold text-white">Fleet Control</h2>
+            <h2 className="text-lg font-semibold text-white">Vehicle Monitoring</h2>
           </div>
           <Sidebar
             vehicles={vehicles}
