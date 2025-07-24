@@ -1,33 +1,93 @@
-# 🚗 Vehicle GPS Tracking UI with Live Map Display
+🚗Vehicle GPS Tracking UI with Live Map Display
 
-A responsive React.js web application to visualize vehicle positions using Leaflet and a mock API. Designed for fleet monitoring, filtering, and status tracking.
+A responsive React.js application to display real-time vehicle positions on a map using Leaflet.js. It fetches vehicle data from a mock API, updates every 10 seconds, and includes filtering, statistics, and a visually clean UI.
 
----
+Table of Contents:
 
-## 📦 Tech Stack
+Features
 
-- **Frontend Framework**: React.js (via Vite)
-- **Map Library**: React Leaflet + Leaflet
-- **Icons**: Lucide React
-- **Styling**: Tailwind CSS
-- **HTTP Requests**: Axios
-- **Mock API**: [MockAPI](https://687f45b2efe65e52008907e7.mockapi.io/vehicles)
+Tech Stack
 
----
+Prerequisites
 
-## 📁 Folder Structure
+Setup and Installation
+
+Clone the Repository
+
+Install Dependencies
+
+Start the Development Server
+
+Folder Structure
+
+API and Data Flow
+
+UI Flow
+
+Demo
+
+Author
+
+Features:
+
+Live map display using Leaflet.js and OpenStreetMap
+
+Periodic vehicle data fetching every 10 seconds
+
+Interactive markers with custom icons and popups
+
+Sidebar with filters (by vehicle ID, speed, and status)
+
+Vehicle statistics: moving, parked, offline, average speed
+
+Countdown timer for next update
+
+Responsive design
+
+Loading overlay and error handling
+
+Tech Stack:
+
+Frontend: React.js, Tailwind CSS, React Leaflet, Lucide Icons
+
+API: MockAPI or fallback mock data via axios
+
+Map: Leaflet.js (OpenStreetMap tiles)
+
+Prerequisites:
+
+Node.js and npm installed on your machine
+
+Internet connection to fetch data from mock API
+
+Setup and Installation:
+
+Clone the Repository
+git clone https://github.com/yourusername/vehicle-gps-tracker.git
+
+Navigate to the Project
+cd vehicle-gps-tracker
+
+Install Dependencies
+npm install
+
+Start the Development Server
+npm run dev
+
+The app should now be running at http://localhost:5173
+
+Folder Structure:
 
 src/
 ├── components/
 │ ├── Header.jsx
-│ ├── LoadingOverlay.jsx
-│ ├── MapContainer.jsx
 │ ├── Sidebar.jsx
-│ ├── VehicleFilters.jsx
 │ ├── VehicleList.jsx
+│ ├── VehicleFilters.jsx
+│ ├── VehicleStats.jsx
 │ ├── VehicleMap.jsx
 │ ├── VehicleMarker.jsx
-│ └── VehicleStats.jsx
+│ ├── LoadingOverlay.jsx
 ├── pages/
 │ └── Dashboard.jsx
 ├── services/
@@ -35,84 +95,46 @@ src/
 ├── utils/
 │ ├── markerUtils.js
 │ └── vehicleUtils.js
+├── main.jsx
+└── index.css
 
-yaml
-Copy
-Edit
+API and Data Flow:
 
----
+Vehicle data is fetched from:
+https://687f45b2efe65e52008907e7.mockapi.io/vehicles
 
-## 🚀 Getting Started
+If the API fails, mock data is used as fallback
 
-### 1️⃣ Clone the Repository
+Each vehicle object contains:
+id, name, type, position (lat, lng), speed, status, driver, fuel, lastUpdate
 
-```bash
-git clone https://github.com/your-username/vehiclegpstracker.git
-cd vehiclegpstracker
-2️⃣ Install Dependencies
-bash
-Copy
-Edit
-npm install
-3️⃣ Start the Development Server
-bash
-Copy
-Edit
-npm run dev
-Visit http://localhost:5173 in your browser.
+Data updates every 10 seconds using setInterval
 
-🗺️ Features
-📍 Live Map with vehicle markers
+Filtering is applied based on selected ID, speed range, and status
 
-🔄 Auto-refresh every 10 seconds
+UI Flow:
 
-🧠 Smart filtering by:
+App loads with a loading screen
 
-Vehicle ID
+Fetches initial vehicle data
 
-Speed range
+Displays sidebar with filters and stats
 
-Status (moving, parked, offline)
+Shows live map with markers
 
-📊 Vehicle stats (count, average speed, type breakdown)
+Every 10 seconds, data is refreshed
 
-🧾 Marker popups with vehicle details
+Countdown shows remaining seconds for next update
 
-📱 Fully responsive design
+User can interact with markers and filters
 
-🔁 API & Data Flow
-✅ Mock API Endpoint
-h
-Copy
-Edit
-GET https://687f45b2efe65e52008907e7.mockapi.io/vehicles
-📌 Data Format
-Each vehicle has:
+Demo:
 
-json
-Copy
-Edit
-{
-  "id": "V001",
-  "name": "Kamakhya Express",
-  "type": "Truck",
-  "position": [26.1445, 91.7362],
-  "speed": 45,
-  "status": "moving",
-  "driver": "Ramesh Kumar",
-  "fuel": 85,
-  "lastUpdate": "2025-07-24T14:00:00Z"
-}
-If the API fails, fallback mock data is used.
+Add your Loom or screen recording link here
+Example: https://loom.com/share/demo-link
 
-🧠 UI Flow
-Dashboard.jsx initializes and fetches vehicle data every 10s.
+Author:
 
-Vehicles are filtered based on selected criteria.
-
-Sidebar displays filters, vehicle list, and stats.
-
-MapContainer shows filtered vehicles on map.
-
-Clicking a marker opens a popup with live details.
+Project by [Your Name]
+GitHub: https://github.com/yourusername
 
