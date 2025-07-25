@@ -31,7 +31,7 @@ const Header = ({ vehicleCount, totalVehicles, countdown, onToggleSidebar, sideb
             </div>
             <div>
               <h1 className="text-white text-sm sm:text-base lg:text-xl font-bold tracking-tight">
-                Vehicle Tracker GPS
+                Vehicle GPS Tracker
               </h1>
               <p className="text-slate-400 text-xs lg:text-sm leading-none">
                 Real-time Monitoring

@@ -10,7 +10,7 @@ const LoadingOverlay = () => {
           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
             <MapPin className="w-6 h-6 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white">Vehicle Tracker GPS</h1>
+          <h1 className="text-3xl font-bold text-white">Vehicle GPS Tracker</h1>
         </div>
 
         {/* Loading Spinner */}
