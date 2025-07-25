@@ -50,7 +50,7 @@ A responsive React.js application that displays simulated real-time vehicle posi
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/vehicle-gps-tracker.git
+git clone https://github.com/Nitul-Das/Vehicle-GPS-Tracker.git
 ```
 
 ### Navigate to the Project
