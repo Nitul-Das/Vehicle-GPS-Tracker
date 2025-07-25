@@ -113,7 +113,7 @@ function Dashboard() {
         </div>
 
         {/* Map */}
-        <div className="flex-1 min-h-[50vh] md:h-full md:overflow-hidden">
+        <div className="flex-1 min-h-[60vh] md:h-full md:overflow-hidden">
           <div className="w-full h-full min-h-[50vh]">
             <MapContainer vehicles={filteredVehicles} />
           </div>
