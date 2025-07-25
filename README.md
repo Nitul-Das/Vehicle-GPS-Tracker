@@ -80,12 +80,13 @@ The app should now be running at http://localhost:5173
 src/
 ├── components/
 │   ├── Header.jsx
+│   ├── MapContainer.jsx
+│   ├── VehicleMarker.jsx
+│   ├── RecenterButton.jsx
 │   ├── Sidebar.jsx
 │   ├── VehicleList.jsx
 │   ├── VehicleFilters.jsx
 │   ├── VehicleStats.jsx
-│   ├── VehicleMap.jsx
-│   ├── VehicleMarker.jsx
 │   └── LoadingOverlay.jsx
 ├── pages/
 │   └── Dashboard.jsx
@@ -116,13 +117,7 @@ src/
 5. Every 10 seconds, data is refreshed
 6. Countdown shows remaining seconds for next update
 7. User can interact with markers and filters
-
-## Demo
-
-Add your Loom or screen recording link here
-
-Example: https://loom.com/share/demo-link
-
+   
 ## Author
 
 **Project by [Nitul Das]**
