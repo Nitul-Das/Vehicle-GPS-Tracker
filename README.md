@@ -8,6 +8,7 @@ A responsive React.js application that displays simulated real-time vehicle posi
 
 ## Table of Contents
 
+- [Live Demo](#live-demo)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
@@ -18,8 +19,6 @@ A responsive React.js application that displays simulated real-time vehicle posi
 - [Folder Structure](#folder-structure)
 - [API and Data Flow](#api-and-data-flow)
 - [UI Flow](#ui-flow)
-- [Demo](#demo)
-- [Live Demo](#live-demo)
 - [Author](#author)
 
 ## Features
